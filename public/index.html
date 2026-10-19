@@ -94,17 +94,14 @@
               <small class="err" data-for="phone"></small>
             </label>
             <label class="field">
-              <span>City <span class="opt">(optional)</span></span>
-              <input name="city" autocomplete="address-level2" maxlength="80" placeholder="Bengaluru" />
-              <small class="err" data-for="city"></small>
-            </label>
-          </div>
-          <div class="row">
-            <label class="field">
               <span>Current role / job title <span class="req">*</span></span>
               <input name="role" autocomplete="organization-title" required maxlength="120" placeholder="Senior Support Executive" />
               <small class="err" data-for="role"></small>
             </label>
+          </div>
+          <details class="more" id="more-fields">
+            <summary>Tell Tushar a bit about you <span class="opt">(optional · 30 sec)</span></summary>
+          <div class="row">
             <label class="field">
               <span>Years of experience <span class="opt">(optional)</span></span>
               <select name="experience">
@@ -113,8 +110,6 @@
               </select>
               <small class="err" data-for="experience"></small>
             </label>
-          </div>
-          <div class="row">
             <label class="field">
               <span>Function <span class="opt">(optional)</span></span>
               <select name="jobFunction">
@@ -123,6 +118,13 @@
                 <option>Operations/back-office</option><option>Other</option>
               </select>
               <small class="err" data-for="jobFunction"></small>
+            </label>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span>City <span class="opt">(optional)</span></span>
+              <input name="city" autocomplete="address-level2" maxlength="80" placeholder="Bengaluru" />
+              <small class="err" data-for="city"></small>
             </label>
             <label class="field">
               <span>LinkedIn URL <span class="opt">(optional)</span></span>
@@ -144,6 +146,7 @@
             </select>
             <small class="err" data-for="source"></small>
           </label>
+          </details>
           <input type="hidden" name="utm" id="utm-field" />
           <!-- Honeypot for bots; hidden from humans -->
           <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>

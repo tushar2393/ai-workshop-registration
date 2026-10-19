@@ -50,6 +50,8 @@ function showErrors(form: HTMLFormElement, errors: FieldErrors): void {
     if (errEl) errEl.textContent = msg ?? "";
     const input = form.elements.namedItem(field) as HTMLElement | null;
     if (input) {
+      const more = input.closest("details");
+      if (more) (more as HTMLDetailsElement).open = true;
       input.closest(".field")?.classList.add("invalid");
       input.setAttribute("aria-invalid", "true");
       if (!first) first = input;

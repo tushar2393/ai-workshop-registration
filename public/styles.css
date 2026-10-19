@@ -148,3 +148,8 @@ td.pay-cell .btn { margin-left: 8px; padding: 4px 10px; font-size: .8rem; border
 .pay-sub { display: block; margin-top: 8px; opacity: .75; font-size: 13px; text-align: center; }
 .pay-alt { margin-top: 16px; font-size: 14px; }
 .pay-alt summary { cursor: pointer; opacity: .8; margin-bottom: 10px; }
+
+/* Optional fields folded away to keep the form short */
+.more { margin: 4px 0 16px; border: 1px dashed rgba(127,127,127,.35); border-radius: 10px; padding: 10px 14px; }
+.more summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.more[open] summary { margin-bottom: 12px; }
