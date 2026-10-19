@@ -66,7 +66,7 @@
       <div id="form-view">
         <h2 id="form-title">Register for the workshop</h2>
         <p class="muted" id="form-sub">Takes under 2 minutes. Fields marked <span class="req">*</span> are required.</p>
-        <p class="pay-note"><span aria-hidden="true">💳</span> Pay ₹499 securely (UPI, cards, netbanking) right after registering.</p>
+        <p class="pay-note"><span aria-hidden="true">💳</span> Pay ₹499 by UPI right after registering.</p>
         <div class="banner banner-warn" id="soldout-banner" hidden>
           <b>Sold out!</b> All 50 seats are taken. Join the waitlist below and we'll message you if a seat opens up
           or when we announce the next batch.
@@ -157,7 +157,7 @@
           <small class="err" data-for="consent"></small>
 
           <button class="btn btn-primary btn-block" type="submit" id="submit-btn">Register now</button>
-          <p class="fineprint">You'll pay ₹499 securely via Razorpay right after registering.</p>
+          <p class="fineprint">You'll pay ₹499 by UPI right after registering.</p>
         </form>
       </div>
 
@@ -172,10 +172,10 @@
         </div>
         <div class="pay-box" id="pay-box" hidden>
           <h3>One last step: confirm your seat</h3>
-          <a class="btn btn-primary btn-block" id="pay-btn" href="https://rzp.io/rzp/Cqu3YSOk" target="_blank" rel="noopener">💳 Pay <span data-amount>₹499</span> securely</a>
-          <small class="pay-sub">UPI, cards or netbanking via Razorpay. Use the same email/phone you registered with.</small>
-          <details class="pay-alt">
-            <summary>Payment page not working? Pay by UPI instead</summary>
+          <a class="btn btn-primary btn-block" id="pay-btn" hidden href="#" target="_blank" rel="noopener">💳 Pay <span data-amount>₹499</span> securely</a>
+          <small class="pay-sub" id="pay-sub" hidden>UPI, cards or netbanking via Razorpay. Use the same email/phone you registered with.</small>
+          <details class="pay-alt" id="pay-alt" open>
+            <summary id="pay-alt-summary">Payment page not working? Pay by UPI instead</summary>
             <div class="pay-step">
               <span class="step-num" aria-hidden="true">1</span>
               <div class="step-body">

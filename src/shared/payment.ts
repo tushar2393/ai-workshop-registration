@@ -11,7 +11,8 @@ export interface PaymentInfo {
   whatsappNumber: string;
 }
 
-export const DEFAULT_PAYMENT_URL = "https://rzp.io/rzp/Cqu3YSOk";
+/** Empty = Razorpay off, UPI + WhatsApp screenshot is the main flow. Set PAYMENT_URL on Render to switch on. */
+export const DEFAULT_PAYMENT_URL = "";
 export const DEFAULT_UPI_NUMBER = "9271286809";
 export const DEFAULT_WHATSAPP_NUMBER = "919271286809";
 

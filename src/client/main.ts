@@ -99,7 +99,20 @@ function showThanks(res: RegisterResponse): void {
 function renderPayment(res: RegisterResponse): void {
   const p = res.payment;
   if (!p) return;
-  if (p.paymentUrl) $<HTMLAnchorElement>("#pay-btn").href = p.paymentUrl;
+  const payBtn = $<HTMLAnchorElement>("#pay-btn");
+  const alt = $<HTMLDetailsElement>("#pay-alt");
+  if (p.paymentUrl) {
+    payBtn.href = p.paymentUrl;
+    payBtn.hidden = false;
+    $("#pay-sub").hidden = false;
+    alt.open = false;
+  } else {
+    // Razorpay not live yet: UPI steps become the main flow.
+    payBtn.hidden = true;
+    $("#pay-sub").hidden = true;
+    alt.open = true;
+    $("#pay-alt-summary").textContent = "Pay by UPI in 2 quick steps";
+  }
   document.querySelectorAll<HTMLElement>("[data-upi-number]").forEach((el) => (el.textContent = p.upiNumber));
   document.querySelectorAll<HTMLElement>("[data-wa-number]").forEach((el) => (el.textContent = displayWhatsapp(p.whatsappNumber)));
   document.querySelectorAll<HTMLElement>("[data-amount]").forEach((el) => (el.textContent = `₹${p.amountInr}`));
