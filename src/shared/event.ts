@@ -4,10 +4,10 @@ export const EVENT = {
   shortTitle: "Build your first AI project in 90 minutes",
   host: "Tushar Khandelwal",
   hostBio: "Product manager (Assured, Innovaccer, Thirty Madison, MathWorks) · 7+ years in the US · Airtribe mentor",
-  // 24 Oct 2026, 5:00–6:30 PM IST (UTC+5:30) => 11:30–13:00 UTC
-  startUtc: "2026-10-24T11:30:00Z",
-  endUtc: "2026-10-24T13:00:00Z",
-  displayDate: "Saturday, 24 October 2026",
+  // 31 Oct 2026, 5:00–6:30 PM IST (UTC+5:30) => 11:30–13:00 UTC
+  startUtc: "2026-10-31T11:30:00Z",
+  endUtc: "2026-10-31T13:00:00Z",
+  displayDate: "Saturday, 31 October 2026",
   displayTime: "5:00 – 6:30 PM IST",
   location: "Online (Zoom link sent after registration)",
   priceInr: 499,
@@ -15,7 +15,7 @@ export const EVENT = {
 } as const;
 
 function toGCalStamp(iso: string): string {
-  // 2026-10-24T11:30:00Z -> 20261024T113000Z
+  // 2026-10-31T11:30:00Z -> 20261031T113000Z
   return iso.replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 }
 

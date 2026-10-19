@@ -4,7 +4,7 @@ Registration site for the live online workshop:
 
 > **Is AI coming for your job? Build your first AI project in 90 minutes.**
 > Host: Tushar Khandelwal (former US-based AI product manager, Airtribe mentor/instructor)
-> **Saturday, 24 Oct 2026 · 5:00–6:30 PM IST** · Online (Zoom link sent after registration) · **₹499** · **50 seats**
+> **Saturday, 31 Oct 2026 · 5:00–6:30 PM IST** · Online (Zoom link sent after registration) · **₹499** · **50 seats**
 
 TypeScript throughout: a small **Express** server plus a single static page whose scripts are compiled from TypeScript with `tsc`. No frontend or CSS framework. Runtime dependencies: `express` and `pg`. Storage is **Postgres** when `DATABASE_URL` is set (use this on free hosts), otherwise a local JSON file.
 
@@ -16,7 +16,7 @@ TypeScript throughout: a small **Express** server plus a single static page whos
   - LinkedIn URLs must be on `linkedin.com`. A missing `https://` is added automatically
 - Duplicate emails are rejected with HTTP 409. The check ignores case and surrounding spaces
 - **Seat cap** (default 50): once the confirmed seats are full, the page switches to a "Sold out · join the waitlist" state. Waitlist entries are still saved with `status: "waitlist"`
-- **Payment by UPI** (no gateway): the thank-you screen says *Pay ₹499 via UPI to 9271286809* with a **Copy number** button (works in GPay/PhonePe/Paytm etc. via "pay to phone number"), then *Send the payment screenshot on WhatsApp* with a button to `https://wa.me/<WHATSAPP_NUMBER>?text=…` pre-filled with the person's name, email and "paid ₹499 for the AI workshop on 24 Oct". Waitlisted people see a waitlist message and no payment steps. No `upi://` link is generated (we only have a phone number, not a VPA)
+- **Payment by UPI** (no gateway): the thank-you screen says *Pay ₹499 via UPI to 9271286809* with a **Copy number** button (works in GPay/PhonePe/Paytm etc. via "pay to phone number"), then *Send the payment screenshot on WhatsApp* with a button to `https://wa.me/<WHATSAPP_NUMBER>?text=…` pre-filled with the person's name, email and "paid ₹499 for the AI workshop on 31 Oct". Waitlisted people see a waitlist message and no payment steps. No `upi://` link is generated (we only have a phone number, not a VPA)
 - Thank-you screen also shows the event date/time in IST and an **Add to Google Calendar** link
 - Every registration has `paymentStatus` (`pending` by default). Admin page at `/admin` (protected by `ADMIN_TOKEN`) shows the table with a **Payment** column and a **Mark paid** / Undo button, seat/waitlist/paid counts, and a CSV download (includes `paymentStatus` and `paidAt`)
 - Small extras: a honeypot anti-bot field, a per-IP rate limit (10 submissions/min), a 20 KB body limit, protection against spreadsheet formula injection in the CSV, a UTF-8 BOM so Excel opens the CSV correctly, atomic file writes (JSON) / transactional inserts (Postgres), and `/healthz` for health checks

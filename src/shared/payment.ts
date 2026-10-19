@@ -26,7 +26,7 @@ export function displayWhatsapp(intl: string): string {
 
 export function whatsappMessage(fullName: string, email: string): string {
   return (
-    `Hi Tushar, I'm ${fullName} (${email}). I have paid ₹${EVENT.priceInr} for the AI workshop on 24 Oct ` +
+    `Hi Tushar, I'm ${fullName} (${email}). I have paid ₹${EVENT.priceInr} for the AI workshop on 31 Oct ` +
     `(Sat, 5:00-6:30 PM IST). Sharing the payment screenshot here.`
   );
 }
