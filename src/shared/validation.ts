@@ -30,6 +30,8 @@ export interface RegistrationInput {
   linkedin: string;
   aiWorry: string;
   source: string;
+  /** Campaign tag from the landing URL (?src= / utm_*), e.g. "ig/reel1". Captured automatically. */
+  utm: string;
   consent: boolean;
 }
 
@@ -85,6 +87,8 @@ export function validateRegistration(
     linkedin: str(raw.linkedin),
     aiWorry: str(raw.aiWorry),
     source: str(raw.source),
+    // Keep only safe characters; this is tracking metadata, never shown as an error.
+    utm: str(raw.utm).replace(/[^\w\-./:|]/g, "").slice(0, 200),
     consent: raw.consent === true || raw.consent === "true" || raw.consent === "on",
   };
 

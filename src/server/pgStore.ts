@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS registrations (
   ip             text,
   user_agent     text
 );
+ALTER TABLE registrations ADD COLUMN IF NOT EXISTS utm text NOT NULL DEFAULT '';
 CREATE UNIQUE INDEX IF NOT EXISTS registrations_email_lower_uq ON registrations (lower(email));
 CREATE INDEX IF NOT EXISTS registrations_created_at_idx ON registrations (created_at);
 `;
@@ -53,6 +54,7 @@ interface Row {
   linkedin: string;
   ai_worry: string;
   source: string;
+  utm: string;
   consent: boolean;
   ip: string | null;
   user_agent: string | null;
@@ -75,6 +77,7 @@ function fromRow(r: Row): Registration {
     linkedin: r.linkedin,
     aiWorry: r.ai_worry,
     source: r.source,
+    utm: r.utm ?? "",
     consent: r.consent,
     ip: r.ip ?? undefined,
     userAgent: r.user_agent ?? undefined,
@@ -126,13 +129,13 @@ export class PgStore implements RegistrationStore {
       const inserted = await client.query<Row>(
         `INSERT INTO registrations
            (id, created_at, status, payment_status, full_name, email, phone, city, role, experience,
-            job_function, linkedin, ai_worry, source, consent, ip, user_agent)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)
+            job_function, linkedin, ai_worry, source, consent, ip, user_agent, utm)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)
          RETURNING *`,
         [
           reg.id, reg.createdAt, reg.status, reg.paymentStatus, reg.fullName, reg.email, reg.phone, reg.city,
           reg.role, reg.experience, reg.jobFunction, reg.linkedin, reg.aiWorry, reg.source, reg.consent,
-          reg.ip ?? null, reg.userAgent ?? null,
+          reg.ip ?? null, reg.userAgent ?? null, reg.utm,
         ],
       );
       await client.query("COMMIT");

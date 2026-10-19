@@ -83,10 +83,10 @@ function showThanks(res: RegisterResponse): void {
   } else {
     $("#thanks-title").textContent = "You're in!";
     $("#thanks-msg").textContent =
-      `Thanks, ${firstName}! Your seat is reserved. Pay ₹499 by UPI and send us the screenshot on WhatsApp to confirm it — the Zoom link will be sent to your email and WhatsApp before the session.`;
+      `Thanks, ${firstName}! Your seat is held. Pay ₹499 below to confirm it. The Zoom link will be sent to your email and WhatsApp before the session.`;
     renderPayment(res);
     payBox.hidden = false;
-    $("#thanks-fine").textContent = "Your seat is confirmed once we receive the payment screenshot.";
+    $("#thanks-fine").textContent = "Your seat is confirmed once payment goes through.";
   }
   if (typeof res.seatsLeft === "number" && typeof res.seatLimit === "number")
     renderSeats({ seatsLeft: res.seatsLeft, seatLimit: res.seatLimit, soldOut: !!res.soldOut });
@@ -97,6 +97,7 @@ function showThanks(res: RegisterResponse): void {
 function renderPayment(res: RegisterResponse): void {
   const p = res.payment;
   if (!p) return;
+  if (p.paymentUrl) $<HTMLAnchorElement>("#pay-btn").href = p.paymentUrl;
   document.querySelectorAll<HTMLElement>("[data-upi-number]").forEach((el) => (el.textContent = p.upiNumber));
   document.querySelectorAll<HTMLElement>("[data-wa-number]").forEach((el) => (el.textContent = displayWhatsapp(p.whatsappNumber)));
   document.querySelectorAll<HTMLElement>("[data-amount]").forEach((el) => (el.textContent = `₹${p.amountInr}`));
@@ -169,8 +170,23 @@ async function onSubmit(e: SubmitEvent): Promise<void> {
   }
 }
 
+/** Campaign tag from the landing URL: ?src=ig-reel1 or utm_source/medium/campaign. Kept for the tab session. */
+function captureUtm(): string {
+  const q = new URLSearchParams(location.search);
+  const parts = [q.get("src"), q.get("utm_source"), q.get("utm_medium"), q.get("utm_campaign")].filter(Boolean) as string[];
+  let tag = parts.join("|").slice(0, 200);
+  try {
+    if (tag) sessionStorage.setItem("utm", tag);
+    else tag = sessionStorage.getItem("utm") ?? "";
+  } catch {
+    /* storage blocked: use the URL value only */
+  }
+  return tag;
+}
+
 function init(): void {
   const form = $<HTMLFormElement>("#reg-form");
+  $<HTMLInputElement>("#utm-field").value = captureUtm();
   form.addEventListener("submit", (e) => void onSubmit(e as SubmitEvent));
   // Clear a field's error as soon as the user edits it.
   form.addEventListener("input", (e) => {

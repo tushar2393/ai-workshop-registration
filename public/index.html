@@ -32,7 +32,7 @@
     <section class="details" aria-label="Event details">
       <div class="detail"><span class="icon" aria-hidden="true">📅</span><div><b>Saturday, 24 Oct 2026</b><span>5:00 – 6:30 PM IST</span></div></div>
       <div class="detail"><span class="icon" aria-hidden="true">💻</span><div><b>Online, live on Zoom</b><span>Link sent after registration</span></div></div>
-      <div class="detail"><span class="icon" aria-hidden="true">🎟️</span><div><b>₹499 · pay by UPI</b><span>Only 50 seats</span></div></div>
+      <div class="detail"><span class="icon" aria-hidden="true">🎟️</span><div><b>₹499 · pay online</b><span>Only 50 seats</span></div></div>
     </section>
 
     <section class="grid-2">
@@ -66,7 +66,7 @@
       <div id="form-view">
         <h2 id="form-title">Register for the workshop</h2>
         <p class="muted" id="form-sub">Takes under 2 minutes. Fields marked <span class="req">*</span> are required.</p>
-        <p class="pay-note"><span aria-hidden="true">💳</span> Pay ₹499 by UPI after registering; your seat is confirmed once we receive the screenshot.</p>
+        <p class="pay-note"><span aria-hidden="true">💳</span> Pay ₹499 securely (UPI, cards, netbanking) right after registering.</p>
         <div class="banner banner-warn" id="soldout-banner" hidden>
           <b>Sold out!</b> All 50 seats are taken. Join the waitlist below and we'll message you if a seat opens up
           or when we announce the next batch.
@@ -94,7 +94,7 @@
               <small class="err" data-for="phone"></small>
             </label>
             <label class="field">
-              <span>City</span>
+              <span>City <span class="opt">(optional)</span></span>
               <input name="city" autocomplete="address-level2" maxlength="80" placeholder="Bengaluru" />
               <small class="err" data-for="city"></small>
             </label>
@@ -106,7 +106,7 @@
               <small class="err" data-for="role"></small>
             </label>
             <label class="field">
-              <span>Years of experience</span>
+              <span>Years of experience <span class="opt">(optional)</span></span>
               <select name="experience">
                 <option value="">Select…</option>
                 <option>0-2</option><option>2-5</option><option>5-8</option><option>8-12</option><option>12+</option>
@@ -116,7 +116,7 @@
           </div>
           <div class="row">
             <label class="field">
-              <span>Function</span>
+              <span>Function <span class="opt">(optional)</span></span>
               <select name="jobFunction">
                 <option value="">Select…</option>
                 <option>Customer support</option><option>Content/marketing</option><option>QA/testing</option>
@@ -131,12 +131,12 @@
             </label>
           </div>
           <label class="field">
-            <span>What's your biggest worry about AI and your job?</span>
+            <span>What's your biggest worry about AI and your job? <span class="opt">(optional)</span></span>
             <textarea name="aiWorry" rows="3" maxlength="1500" placeholder="Be honest — this helps Tushar tailor the session."></textarea>
             <small class="err" data-for="aiWorry"></small>
           </label>
           <label class="field">
-            <span>How did you hear about this?</span>
+            <span>How did you hear about this? <span class="opt">(optional)</span></span>
             <select name="source">
               <option value="">Select…</option>
               <option>LinkedIn</option><option>WhatsApp group</option><option>Instagram</option><option>X / Twitter</option>
@@ -144,6 +144,7 @@
             </select>
             <small class="err" data-for="source"></small>
           </label>
+          <input type="hidden" name="utm" id="utm-field" />
           <!-- Honeypot for bots; hidden from humans -->
           <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
           <label class="check">
@@ -153,7 +154,7 @@
           <small class="err" data-for="consent"></small>
 
           <button class="btn btn-primary btn-block" type="submit" id="submit-btn">Register now</button>
-          <p class="fineprint">Pay ₹499 by UPI after registering; your seat is confirmed once we receive the screenshot.</p>
+          <p class="fineprint">You'll pay ₹499 securely via Razorpay right after registering.</p>
         </form>
       </div>
 
@@ -167,29 +168,32 @@
           <span>💻 Online on Zoom — link will be sent to your email &amp; WhatsApp</span>
         </div>
         <div class="pay-box" id="pay-box" hidden>
-          <h3>Confirm your seat in 2 quick steps</h3>
-          <div class="pay-step">
-            <span class="step-num" aria-hidden="true">1</span>
-            <div class="step-body">
-              <b>Pay <span data-amount>₹499</span> via UPI to <span class="upi-num" data-upi-number>9271286809</span></b>
-              <button class="btn btn-ghost btn-sm" type="button" id="copy-upi-btn">📋 Copy number</button>
-              <small>Works in GPay, PhonePe, Paytm, BHIM or any UPI app — choose <i>“Pay to phone/mobile number”</i>,
-                enter this number and pay <span data-amount>₹499</span>.</small>
+          <h3>One last step: confirm your seat</h3>
+          <a class="btn btn-primary btn-block" id="pay-btn" href="https://rzp.io/rzp/Cqu3YSOk" target="_blank" rel="noopener">💳 Pay <span data-amount>₹499</span> securely</a>
+          <small class="pay-sub">UPI, cards or netbanking via Razorpay. Use the same email/phone you registered with.</small>
+          <details class="pay-alt">
+            <summary>Payment page not working? Pay by UPI instead</summary>
+            <div class="pay-step">
+              <span class="step-num" aria-hidden="true">1</span>
+              <div class="step-body">
+                <b>Pay <span data-amount>₹499</span> via UPI to <span class="upi-num" data-upi-number>9271286809</span></b>
+                <button class="btn btn-ghost btn-sm" type="button" id="copy-upi-btn">📋 Copy number</button>
+                <small>In GPay, PhonePe, Paytm or BHIM choose <i>“Pay to phone/mobile number”</i>.</small>
+              </div>
             </div>
-          </div>
-          <div class="pay-step">
-            <span class="step-num" aria-hidden="true">2</span>
-            <div class="step-body">
-              <b>Send the payment screenshot on WhatsApp to <span data-wa-number>9271286809</span></b>
-              <a class="btn btn-wa" id="wa-btn" href="#" target="_blank" rel="noopener">💬 Send screenshot on WhatsApp</a>
-              <small>Opens WhatsApp with a pre-filled message — just attach the screenshot and send.</small>
+            <div class="pay-step">
+              <span class="step-num" aria-hidden="true">2</span>
+              <div class="step-body">
+                <b>Send the screenshot on WhatsApp to <span data-wa-number>9271286809</span></b>
+                <a class="btn btn-wa" id="wa-btn" href="#" target="_blank" rel="noopener">💬 Send screenshot on WhatsApp</a>
+              </div>
             </div>
-          </div>
+          </details>
         </div>
         <div class="thanks-actions">
           <a class="btn btn-ghost" id="gcal-btn" href="#" target="_blank" rel="noopener">📅 Add to Google Calendar</a>
         </div>
-        <p class="fineprint" id="thanks-fine">Your seat is confirmed once we receive the payment screenshot.</p>
+        <p class="fineprint" id="thanks-fine">Your seat is confirmed once payment goes through.</p>
       </div>
     </section>
   </main>

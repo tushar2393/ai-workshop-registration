@@ -17,6 +17,8 @@ services:
         generateValue: true
       - key: DATABASE_URL
         sync: false # paste your Neon/Supabase connection string in the Render dashboard
+      - key: PAYMENT_URL
+        value: "https://rzp.io/rzp/Cqu3YSOk"
       - key: UPI_NUMBER
         value: "9271286809"
       - key: WHATSAPP_NUMBER

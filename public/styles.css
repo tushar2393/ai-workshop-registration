@@ -143,3 +143,8 @@ td.worry { min-width: 240px; }
 .pay-paid { color: var(--ok); font-weight: 700; }
 td.pay-cell { white-space: nowrap; }
 td.pay-cell .btn { margin-left: 8px; padding: 4px 10px; font-size: .8rem; border-radius: 8px; }
+
+/* Razorpay-first payment box */
+.pay-sub { display: block; margin-top: 8px; opacity: .75; font-size: 13px; text-align: center; }
+.pay-alt { margin-top: 16px; font-size: 14px; }
+.pay-alt summary { cursor: pointer; opacity: .8; margin-bottom: 10px; }

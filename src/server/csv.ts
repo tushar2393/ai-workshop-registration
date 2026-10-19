@@ -2,7 +2,7 @@ import type { Registration } from "./store.js";
 
 const COLUMNS: (keyof Registration | "createdAtIST")[] = [
   "createdAtIST", "createdAt", "status", "paymentStatus", "paidAt", "fullName", "email", "phone", "city", "role", "experience",
-  "jobFunction", "linkedin", "aiWorry", "source", "consent", "id",
+  "jobFunction", "linkedin", "aiWorry", "source", "utm", "consent", "id",
 ];
 
 function cell(value: unknown): string {

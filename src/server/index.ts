@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { timingSafeEqual } from "node:crypto";
 import { EVENT, googleCalendarUrl } from "../shared/event.js";
 import { validateRegistration } from "../shared/validation.js";
-import { DEFAULT_UPI_NUMBER, DEFAULT_WHATSAPP_NUMBER, digitsOnly, whatsappUrl, type PaymentInfo } from "../shared/payment.js";
+import { DEFAULT_PAYMENT_URL, DEFAULT_UPI_NUMBER, DEFAULT_WHATSAPP_NUMBER, digitsOnly, whatsappUrl, type PaymentInfo } from "../shared/payment.js";
 import { JsonStore, PAYMENT_STATUSES, type PaymentStatus, type RegistrationStore } from "./store.js";
 import { PgStore } from "./pgStore.js";
 import { toCsv } from "./csv.js";
@@ -17,10 +17,10 @@ const DATA_FILE = path.resolve(ROOT, process.env.DATA_FILE || "data/registration
 const DATABASE_URL = (process.env.DATABASE_URL ?? "").trim();
 const PAYMENT: PaymentInfo = {
   amountInr: EVENT.priceInr,
+  paymentUrl: (process.env.PAYMENT_URL ?? "").trim() || DEFAULT_PAYMENT_URL,
   upiNumber: digitsOnly(process.env.UPI_NUMBER ?? "") || DEFAULT_UPI_NUMBER,
   whatsappNumber: digitsOnly(process.env.WHATSAPP_NUMBER ?? "") || DEFAULT_WHATSAPP_NUMBER,
 };
-if (process.env.PAYMENT_URL) console.warn("PAYMENT_URL is no longer used: payment is via UPI (UPI_NUMBER / WHATSAPP_NUMBER).");
 
 // Postgres when DATABASE_URL is set (durable on free hosts), otherwise the local JSON file.
 const store: RegistrationStore = DATABASE_URL ? new PgStore(DATABASE_URL) : new JsonStore(DATA_FILE);
@@ -222,7 +222,7 @@ if (store.kind === "json" && process.env.RENDER) {
 const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`AI workshop registration running on http://localhost:${PORT}`);
   const storage = store.kind === "postgres" ? "Postgres (DATABASE_URL)" : `JSON file ${DATA_FILE}`;
-  console.log(`Storage: ${storage} | Seat limit: ${SEAT_LIMIT} | UPI: ${PAYMENT.upiNumber} | WhatsApp: ${PAYMENT.whatsappNumber} | Admin: ${ADMIN_TOKEN ? "enabled" : "DISABLED (set ADMIN_TOKEN)"}`);
+  console.log(`Storage: ${storage} | Seat limit: ${SEAT_LIMIT} | Pay: ${PAYMENT.paymentUrl} | UPI fallback: ${PAYMENT.upiNumber} | WhatsApp: ${PAYMENT.whatsappNumber} | Admin: ${ADMIN_TOKEN ? "enabled" : "DISABLED (set ADMIN_TOKEN)"}`);
 });
 
 for (const sig of ["SIGTERM", "SIGINT"] as const) {

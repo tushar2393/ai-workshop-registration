@@ -3,12 +3,15 @@ import { EVENT } from "./event.js";
 
 export interface PaymentInfo {
   amountInr: number;
+  /** Hosted payment page (Razorpay). Primary way to pay. */
+  paymentUrl: string;
   /** Mobile number to pay via UPI ("pay to phone number" in GPay/PhonePe/Paytm). Digits only. */
   upiNumber: string;
   /** WhatsApp number in international format, digits only (e.g. 919271286809). */
   whatsappNumber: string;
 }
 
+export const DEFAULT_PAYMENT_URL = "https://rzp.io/rzp/Cqu3YSOk";
 export const DEFAULT_UPI_NUMBER = "9271286809";
 export const DEFAULT_WHATSAPP_NUMBER = "919271286809";
 

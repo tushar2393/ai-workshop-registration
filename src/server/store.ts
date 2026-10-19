@@ -70,6 +70,7 @@ export class JsonStore implements RegistrationStore {
       this.items = (Array.isArray(parsed) ? parsed : []).map((r: Registration) => ({
         ...r,
         paymentStatus: r.paymentStatus === "paid" ? "paid" : "pending",
+        utm: r.utm ?? "",
       }));
     } catch (err: any) {
       if (err?.code !== "ENOENT") throw err;
