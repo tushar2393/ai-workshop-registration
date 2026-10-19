@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Is AI coming for your job? · Live workshop with Tushar Khandelwal</title>
+  <meta name="description" content="Live 90-minute online workshop for Indian professionals: build your first AI project. Sat 24 Oct 2026, 5:00–6:30 PM IST. ₹499. 50 seats." />
+  <meta property="og:title" content="Is AI coming for your job? Build your first AI project in 90 minutes." />
+  <meta property="og:description" content="Live online workshop · Sat 24 Oct 2026 · 5:00–6:30 PM IST · ₹499 · Only 50 seats" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="module" src="/js/client/main.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Live online workshop · 90 minutes · Hands-on</p>
+      <h1>Is AI coming for your job?<br /><span class="accent">Build your first AI project in 90 minutes.</span></h1>
+      <p class="lead">
+        Stop doom-scrolling AI headlines. In one evening you'll understand what AI can and can't do in
+        <strong>support, content, QA and operations</strong> roles — and walk away with a working AI project
+        you built yourself. No coding background needed.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#register" id="hero-cta">Reserve my seat · ₹499</a>
+        <span class="seats-pill" id="seats-pill" hidden></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="details" aria-label="Event details">
+      <div class="detail"><span class="icon" aria-hidden="true">📅</span><div><b>Saturday, 24 Oct 2026</b><span>5:00 – 6:30 PM IST</span></div></div>
+      <div class="detail"><span class="icon" aria-hidden="true">💻</span><div><b>Online, live on Zoom</b><span>Link sent after registration</span></div></div>
+      <div class="detail"><span class="icon" aria-hidden="true">🎟️</span><div><b>₹499 · pay by UPI</b><span>Only 50 seats</span></div></div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>What you'll do</h2>
+        <ul class="checks">
+          <li>See exactly which tasks in your role AI is already automating — and which it can't touch</li>
+          <li>Build a real AI assistant for your own day-to-day work, live, step by step</li>
+          <li>Learn a simple prompt + workflow framework you can reuse on Monday</li>
+          <li>Get a 30-day plan to position yourself as the "AI person" on your team</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Who it's for</h2>
+        <p>Indian professionals with <b>2–12 years</b> of experience in:</p>
+        <div class="tags"><span>Customer support</span><span>Content &amp; marketing</span><span>QA / testing</span><span>Operations / back-office</span></div>
+        <p class="muted">If you've wondered "will my role still exist in 3 years?", this session is for you.</p>
+      </div>
+    </section>
+
+    <section class="card host">
+      <div class="avatar" aria-hidden="true">TK</div>
+      <div>
+        <h2>Your host: Tushar Khandelwal</h2>
+        <p class="host-tagline">Product manager (Assured, Innovaccer, Thirty Madison, MathWorks) · 7+ years in the US · Airtribe mentor</p>
+        <p>Tushar is a product manager who has spent his career building software for some of the hardest problems in healthcare and tech. He's worked on AI agents for the healthcare back office at Assured, on the data platform at Innovaccer, on a central care platform for chronic conditions at Thirty Madison in New York, and on products at MathWorks in Boston. After more than 7 years in the US and a master's from Northeastern University, he moved back home to India, where he now mentors and teaches at Airtribe. He's seen up close how AI is changing what companies hire for, and this workshop is about getting you on the right side of that change.</p>
+      </div>
+    </section>
+
+    <section id="register" class="card form-card">
+      <div id="form-view">
+        <h2 id="form-title">Register for the workshop</h2>
+        <p class="muted" id="form-sub">Takes under 2 minutes. Fields marked <span class="req">*</span> are required.</p>
+        <p class="pay-note"><span aria-hidden="true">💳</span> Pay ₹499 by UPI after registering; your seat is confirmed once we receive the screenshot.</p>
+        <div class="banner banner-warn" id="soldout-banner" hidden>
+          <b>Sold out!</b> All 50 seats are taken. Join the waitlist below and we'll message you if a seat opens up
+          or when we announce the next batch.
+        </div>
+        <div class="banner banner-error" id="form-error" role="alert" hidden></div>
+
+        <form id="reg-form" novalidate>
+          <div class="row">
+            <label class="field">
+              <span>Full name <span class="req">*</span></span>
+              <input name="fullName" autocomplete="name" required maxlength="100" placeholder="Priya Sharma" />
+              <small class="err" data-for="fullName"></small>
+            </label>
+            <label class="field">
+              <span>Email <span class="req">*</span></span>
+              <input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="priya@example.com" />
+              <small class="err" data-for="email"></small>
+            </label>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span>Phone / WhatsApp <span class="req">*</span></span>
+              <input name="phone" type="tel" autocomplete="tel" required value="+91 " inputmode="tel" placeholder="+91 98765 43210" />
+              <small class="hint">We'll send the Zoom link on WhatsApp too.</small>
+              <small class="err" data-for="phone"></small>
+            </label>
+            <label class="field">
+              <span>City</span>
+              <input name="city" autocomplete="address-level2" maxlength="80" placeholder="Bengaluru" />
+              <small class="err" data-for="city"></small>
+            </label>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span>Current role / job title <span class="req">*</span></span>
+              <input name="role" autocomplete="organization-title" required maxlength="120" placeholder="Senior Support Executive" />
+              <small class="err" data-for="role"></small>
+            </label>
+            <label class="field">
+              <span>Years of experience</span>
+              <select name="experience">
+                <option value="">Select…</option>
+                <option>0-2</option><option>2-5</option><option>5-8</option><option>8-12</option><option>12+</option>
+              </select>
+              <small class="err" data-for="experience"></small>
+            </label>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span>Function</span>
+              <select name="jobFunction">
+                <option value="">Select…</option>
+                <option>Customer support</option><option>Content/marketing</option><option>QA/testing</option>
+                <option>Operations/back-office</option><option>Other</option>
+              </select>
+              <small class="err" data-for="jobFunction"></small>
+            </label>
+            <label class="field">
+              <span>LinkedIn URL <span class="opt">(optional)</span></span>
+              <input name="linkedin" type="url" inputmode="url" maxlength="300" placeholder="https://linkedin.com/in/yourname" />
+              <small class="err" data-for="linkedin"></small>
+            </label>
+          </div>
+          <label class="field">
+            <span>What's your biggest worry about AI and your job?</span>
+            <textarea name="aiWorry" rows="3" maxlength="1500" placeholder="Be honest — this helps Tushar tailor the session."></textarea>
+            <small class="err" data-for="aiWorry"></small>
+          </label>
+          <label class="field">
+            <span>How did you hear about this?</span>
+            <select name="source">
+              <option value="">Select…</option>
+              <option>LinkedIn</option><option>WhatsApp group</option><option>Instagram</option><option>X / Twitter</option>
+              <option>YouTube</option><option>Airtribe</option><option>Friend or colleague</option><option>Other</option>
+            </select>
+            <small class="err" data-for="source"></small>
+          </label>
+          <!-- Honeypot for bots; hidden from humans -->
+          <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+          <label class="check">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to receive the Zoom link, reminders and workshop updates by email and WhatsApp. <span class="req">*</span></span>
+          </label>
+          <small class="err" data-for="consent"></small>
+
+          <button class="btn btn-primary btn-block" type="submit" id="submit-btn">Register now</button>
+          <p class="fineprint">Pay ₹499 by UPI after registering; your seat is confirmed once we receive the screenshot.</p>
+        </form>
+      </div>
+
+      <div id="thanks-view" hidden tabindex="-1">
+        <div class="thanks-icon" aria-hidden="true">🎉</div>
+        <h2 id="thanks-title">You're in!</h2>
+        <p id="thanks-msg"></p>
+        <div class="event-box">
+          <b>Is AI coming for your job? Build your first AI project in 90 minutes.</b>
+          <span>📅 Saturday, 24 October 2026 · 5:00 – 6:30 PM IST</span>
+          <span>💻 Online on Zoom — link will be sent to your email &amp; WhatsApp</span>
+        </div>
+        <div class="pay-box" id="pay-box" hidden>
+          <h3>Confirm your seat in 2 quick steps</h3>
+          <div class="pay-step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <div class="step-body">
+              <b>Pay <span data-amount>₹499</span> via UPI to <span class="upi-num" data-upi-number>9271286809</span></b>
+              <button class="btn btn-ghost btn-sm" type="button" id="copy-upi-btn">📋 Copy number</button>
+              <small>Works in GPay, PhonePe, Paytm, BHIM or any UPI app — choose <i>“Pay to phone/mobile number”</i>,
+                enter this number and pay <span data-amount>₹499</span>.</small>
+            </div>
+          </div>
+          <div class="pay-step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <div class="step-body">
+              <b>Send the payment screenshot on WhatsApp to <span data-wa-number>9271286809</span></b>
+              <a class="btn btn-wa" id="wa-btn" href="#" target="_blank" rel="noopener">💬 Send screenshot on WhatsApp</a>
+              <small>Opens WhatsApp with a pre-filled message — just attach the screenshot and send.</small>
+            </div>
+          </div>
+        </div>
+        <div class="thanks-actions">
+          <a class="btn btn-ghost" id="gcal-btn" href="#" target="_blank" rel="noopener">📅 Add to Google Calendar</a>
+        </div>
+        <p class="fineprint" id="thanks-fine">Your seat is confirmed once we receive the payment screenshot.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Hosted by Tushar Khandelwal · Live online workshop · Sat 24 Oct 2026, 5:00–6:30 PM IST</p>
+  </footer>
+</body>
+</html>

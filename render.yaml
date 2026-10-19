@@ -1,0 +1,25 @@
+# Render Blueprint: free web service. Data lives in external Postgres (Neon/Supabase) via DATABASE_URL,
+# because Render's free instances have an ephemeral disk.
+services:
+  - type: web
+    name: ai-workshop-registration
+    runtime: node
+    plan: free
+    region: singapore # closest Render region to India; match your Neon region
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false # paste your Neon/Supabase connection string in the Render dashboard
+      - key: UPI_NUMBER
+        value: "9271286809"
+      - key: WHATSAPP_NUMBER
+        value: "919271286809"
+      - key: SEAT_LIMIT
+        value: "50"

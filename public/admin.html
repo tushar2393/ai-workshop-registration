@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin · AI workshop registrations</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="module" src="/js/client/admin.js"></script>
+</head>
+<body class="admin">
+  <main class="wrap">
+    <h1>Registrations</h1>
+    <form id="token-form" class="card token-form">
+      <label class="field"><span>Admin token</span><input type="password" name="token" autocomplete="current-password" required /></label>
+      <button class="btn btn-primary" type="submit">Load</button>
+      <button class="btn btn-ghost" type="button" id="csv-btn" disabled>Download CSV</button>
+    </form>
+    <div class="banner banner-error" id="admin-error" hidden></div>
+    <div class="stats" id="stats" hidden></div>
+    <div class="table-wrap"><table id="table" hidden><thead></thead><tbody></tbody></table></div>
+  </main>
+</body>
+</html>
