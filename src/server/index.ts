@@ -17,7 +17,7 @@ const DATA_FILE = path.resolve(ROOT, process.env.DATA_FILE || "data/registration
 const DATABASE_URL = (process.env.DATABASE_URL ?? "").trim();
 const PAYMENT: PaymentInfo = {
   amountInr: EVENT.priceInr,
-  paymentUrl: (process.env.PAYMENT_URL ?? "").trim() || DEFAULT_PAYMENT_URL,
+  paymentUrl: (() => { const v = (process.env.PAYMENT_URL ?? "").trim(); return v === "off" ? "" : v || DEFAULT_PAYMENT_URL; })(),
   upiNumber: digitsOnly(process.env.UPI_NUMBER ?? "") || DEFAULT_UPI_NUMBER,
   whatsappNumber: digitsOnly(process.env.WHATSAPP_NUMBER ?? "") || DEFAULT_WHATSAPP_NUMBER,
 };

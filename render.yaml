@@ -18,7 +18,7 @@ services:
       - key: DATABASE_URL
         sync: false # paste your Neon/Supabase connection string in the Render dashboard
       - key: PAYMENT_URL
-        sync: false # set to https://rzp.io/rzp/Cqu3YSOk once Razorpay is in live mode
+        value: "https://rzp.io/rzp/Fu5CQ8QD"
       - key: UPI_NUMBER
         value: "9271286809"
       - key: WHATSAPP_NUMBER
